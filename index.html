@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShuttleMaster</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <title>Professional Badminton Coaching</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         * {
             margin: 0;
@@ -276,6 +273,101 @@
             color: #2c3e50;
         }
 
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .contact-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .contact-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 4rem;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+
+        .contact-item {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .contact-form-container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .submit-btn {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #34495e;
+        }
+
         /* Footer */
         footer {
             background: #2c3e50;
@@ -331,6 +423,11 @@
                 transform: none;
             }
 
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
             .container {
                 padding: 0 15px;
             }
@@ -357,7 +454,7 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <div class="logo">ShuttleMaster</div>
+            <div class="logo">BadmintonPro</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -456,15 +553,88 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Get Started Today</h2>
+            <p class="contact-subtitle">Ready to improve your badminton game? Let's connect!</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <strong>Email:</strong> coach@shuttlemaster.com
+                    </div>
+                    <div class="contact-item">
+                        <strong>Phone:</strong> +65 9123 4567
+                    </div>
+                    <div class="contact-item">
+                        <strong>Location:</strong> Singapore Sports Hub
+                    </div>
+                    <div class="contact-item">
+                        <strong>Available:</strong> Mon-Fri 6PM-10PM, Weekends 9AM-6PM
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form name="contact" method="POST" data-netlify="true" class="contact-form">
+                        <input type="hidden" name="form-name" value="contact">
+                        
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="experience">Experience Level</label>
+                            <select id="experience" name="experience">
+                                <option value="">Select your level</option>
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                                <option value="competitive">Competitive Player</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Interested In</label>
+                            <select id="service" name="service">
+                                <option value="">Select service</option>
+                                <option value="private">Private Coaching ($60/session)</option>
+                                <option value="group">Group Coaching ($30/session)</option>
+                                <option value="both">Both Private & Group</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell me about your goals and any specific areas you'd like to improve..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p>Email: coach@badmintonpro.com</p>
-                    <p>Phone: +65 9123 4567</p>
-                    <p>Location: Singapore Sports Hub</p>
+                    <h3>ShuttleMaster</h3>
+                    <p>Professional badminton coaching for all levels. Transform your game with expert guidance.</p>
                 </div>
                 
                 <div class="footer-section">
@@ -472,6 +642,7 @@
                     <p><a href="#about">About Coach</a></p>
                     <p><a href="#services">Services</a></p>
                     <p><a href="#testimonials">Testimonials</a></p>
+                    <p><a href="#contact">Contact</a></p>
                 </div>
                 
                 <div class="footer-section">
@@ -481,7 +652,7 @@
                     <p><a href="#">YouTube</a></p>
                 </div>
             </div>
-            <p>&copy; 2025 Professional Badminton Coaching. All rights reserved.</p>
+            <p>&copy; 2025 ShuttleMaster Coaching. All rights reserved.</p>
         </div>
     </footer>
 
