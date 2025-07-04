@@ -39,14 +39,10 @@ body {
 
 /* Header */
 header {
-    background: rgba(255, 255, 255, 0.95);
+    background: white;
     padding: 1rem 0;
     box-shadow: var(--shadow-sm);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
+    position: static;
 }
 
 nav {
@@ -94,7 +90,7 @@ nav {
 .hero {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: white;
-    padding: 140px 0 80px;
+    padding: 60px 0;
     position: relative;
     overflow: hidden;
 }
@@ -242,7 +238,7 @@ footer {
     }
 
     .hero {
-        padding: 120px 0 60px;
+        padding: 60px 0 60px;
     }
 
     .hero-content-left {
