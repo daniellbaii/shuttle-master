@@ -255,10 +255,49 @@ footer {
     gap: 3rem;
 }
 
+/* Hamburger button */
+.nav-toggle {
+    font-size: 1.5rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: none;
+}
+
+/* Mobile nav menu */
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 1rem;
+    box-shadow: var(--shadow-md);
+    border-radius: 12px;
+    z-index: 999;
+}
+
+.mobile-nav a {
+    padding: 0.5rem 0;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.mobile-nav a:hover {
+    color: var(--accent-color);
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
+    }
+
+    .nav-toggle {
+        display: block;
     }
 
     .hero {

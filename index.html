@@ -129,33 +129,26 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const navLinks = document.querySelector('.nav-links');
-            const menuButton = document.createElement('button');
-            menuButton.innerHTML = '☰';
-            menuButton.style.fontSize = '1.5rem';
-            menuButton.style.border = 'none';
-            menuButton.style.background = 'none';
-            menuButton.style.cursor = 'pointer';
-            menuButton.style.display = 'none';
-
             const nav = document.querySelector('nav');
-            nav.insertBefore(menuButton, nav.querySelector('.nav-links'));
+            const navLinks = document.querySelector('.nav-links');
 
+            // Create hamburger button
+            const menuButton = document.createElement('button');
+            menuButton.className = 'nav-toggle';
+            menuButton.innerHTML = '&#9776;'; // Unicode for ☰
+            nav.insertBefore(menuButton, navLinks);
+
+            // Create mobile nav container
+            const mobileNav = document.createElement('div');
+            mobileNav.className = 'mobile-nav';
+            mobileNav.innerHTML = navLinks.innerHTML;
+            nav.appendChild(mobileNav);
+
+            // Toggle visibility
             menuButton.addEventListener('click', () => {
-                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.background = 'white';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '60px';
-                navLinks.style.right = '20px';
-                navLinks.style.padding = '1rem';
-                navLinks.style.boxShadow = 'var(--shadow-md)';
-                navLinks.style.borderRadius = '12px';
+                const isVisible = mobileNav.style.display === 'flex';
+                mobileNav.style.display = isVisible ? 'none' : 'flex';
             });
-
-            const style = document.createElement('style');
-            style.innerHTML = '@media (max-width: 768px) { nav .nav-links { display: none; } nav button { display: block; } }';
-            document.head.appendChild(style);
         });
     </script>
 </body>
