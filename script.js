@@ -1,11 +1,35 @@
-document.addEventListener('DOMContentLoaded', () => {
+// template-loader.js
+async function loadTemplate(elementId, templatePath) {
+    try {
+        const response = await fetch(templatePath);
+        const html = await response.text();
+        document.getElementById(elementId).innerHTML = html;
+    } catch (error) {
+        console.error(`Error loading template ${templatePath}:`, error);
+    }
+}
+
+// Load templates when DOM is ready
+document.addEventListener('DOMContentLoaded', async () => {
+    // Load header and footer
+    await loadTemplate('header-temp', 'templates/header.html');
+    await loadTemplate('footer-temp', 'templates/footer.html');
+    
+    // Initialize the mobile menu after header is loaded
+    initializeMobileMenu();
+});
+
+// Your existing mobile menu code
+function initializeMobileMenu() {
     const nav = document.querySelector('nav');
     const navLinks = document.querySelector('.nav-links');
+    
+    if (!nav || !navLinks) return; // Exit if elements don't exist
 
     // Create hamburger button
     const menuButton = document.createElement('button');
     menuButton.className = 'nav-toggle';
-    menuButton.innerHTML = '&#9776;'; // Unicode for ☰
+    menuButton.innerHTML = '&#9776;';
     nav.insertBefore(menuButton, navLinks);
 
     // Create mobile nav container
@@ -26,14 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const isVisible = mobileNav.classList.contains('show');
         
         if (isVisible) {
-            // Hide menu
             mobileNav.classList.remove('show');
             menuButton.classList.remove('active');
             setTimeout(() => {
                 mobileNav.style.display = 'none';
             }, 300);
         } else {
-            // Show menu
             mobileNav.style.display = 'flex';
             setTimeout(() => {
                 mobileNav.classList.add('show');
@@ -72,4 +94,4 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileNav.style.display = 'none';
         }
     });
-});
+}
