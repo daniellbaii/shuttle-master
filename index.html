@@ -19,7 +19,7 @@
         <nav class="container">
             <a href="#" class="logo">Shuttle Master</a>
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="#shop">Shop</a></li>
                 <li><a href="#articles">Articles</a></li>
@@ -43,26 +43,26 @@
     </section>
     
     <!-- Shop Section -->
-    <section id="shop" style="padding: 100px 0; background: var(--bg-secondary);">
+    <section id="shop" class="section-padding" style="background: var(--bg-secondary);">
         <div class="container">
             <div class="services-header">
                 <div class="section-badge">Online Store</div>
                 <h2>Training Programs & Courses</h2>
                 <p class="services-subtitle">Purchase downloadable resources, training guides, and exclusive course access to take your badminton to the next level.</p>
             </div>
-            <div style="text-align:center; color: var(--text-muted); font-size: 1.1rem; margin-top: 3rem;">Shop feature coming soon.</div>
+            <div class="coming-soon">Shop feature coming soon.</div>
         </div>
     </section>
 
     <!-- Articles Section -->
-    <section id="articles" style="padding: 100px 0; background: var(--bg-primary);">
+    <section id="articles" class="section-padding">
         <div class="container">
             <div class="services-header">
                 <div class="section-badge">Learn & Improve</div>
                 <h2>Badminton Insights & Tips</h2>
                 <p class="services-subtitle">Read expert advice, training articles, and strategy breakdowns to stay sharp on and off the court.</p>
             </div>
-            <div style="text-align:center; color: var(--text-muted); font-size: 1.1rem; margin-top: 3rem;">Articles will be published here soon.</div>
+            <div class="coming-soon">Articles will be published here soon.</div>
         </div>
     </section>
 
@@ -74,26 +74,26 @@
                 <h2>Contact Information</h2>
                 <p class="services-subtitle">Have questions? Ready to start your badminton journey? We're here to help.</p>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem;">
-                <div style="background: var(--bg-secondary); padding: 2.5rem; border-radius: 16px; text-align: center; box-shadow: var(--shadow-sm);">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📧</div>
-                    <h3 style="margin-bottom: 1rem; color: var(--text-primary);">Email</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Get in touch for bookings and questions</p>
-                    <a href="mailto:coach@shuttlemaster.com" style="color: var(--accent-color); text-decoration: none; font-weight: 600;">coach@shuttlemaster.com</a>
+            <div class="grid-auto-fit" style="margin-top: 4rem;">
+                <div class="card">
+                    <div class="card-icon">📧</div>
+                    <h3 class="card-title">Email</h3>
+                    <p class="card-subtitle">Get in touch for bookings and questions</p>
+                    <a href="mailto:coach@shuttlemaster.com" class="card-link">coach@shuttlemaster.com</a>
                 </div>
 
-                <div style="background: var(--bg-secondary); padding: 2.5rem; border-radius: 16px; text-align: center; box-shadow: var(--shadow-sm);">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📱</div>
-                    <h3 style="margin-bottom: 1rem; color: var(--text-primary);">Phone</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Call or text for quick responses</p>
-                    <a href="tel:+61403429308" style="color: var(--accent-color); text-decoration: none; font-weight: 600;">+61 403 429 308</a>
+                <div class="card">
+                    <div class="card-icon">📱</div>
+                    <h3 class="card-title">Phone</h3>
+                    <p class="card-subtitle">Call or text for quick responses</p>
+                    <a href="tel:+61403429308" class="card-link">+61 403 429 308</a>
                 </div>
 
-                <div style="background: var(--bg-secondary); padding: 2.5rem; border-radius: 16px; text-align: center; box-shadow: var(--shadow-sm);">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📍</div>
-                    <h3 style="margin-bottom: 1rem; color: var(--text-primary);">Location</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Training sessions held at</p>
-                    <p style="color: var(--accent-color); font-weight: 600;">Perth Badminton Arena</p>
+                <div class="card">
+                    <div class="card-icon">📍</div>
+                    <h3 class="card-title">Location</h3>
+                    <p class="card-subtitle">Training sessions held at</p>
+                    <p class="card-link">Perth Badminton Arena</p>
                 </div>
             </div>
         </div>
@@ -114,42 +114,19 @@
 
             <div style="flex: 1 1 200px;">
                 <h3 style="font-weight: 700; margin-bottom: 1rem;">Quick Links</h3>
-                <p><a class="footer-link" href="#">Home</a></p>
+                <p><a class="footer-link" href="index.html">Home</a></p>
                 <p><a class="footer-link" href="#shop">Shop</a></p>
                 <p><a class="footer-link" href="#articles">Articles</a></p>
             </div>
 
             <div style="flex: 1 1 200px;">
                 <h3 style="font-weight: 700; margin-bottom: 1rem;">Company</h3>
-                <p><a class="footer-link" href="#about">About Us</a></p>
+                <p><a class="footer-link" href="about.html">About Us</a></p>
                 <p><a class="footer-link" href="#contact">Contact</a></p>
             </div>
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const nav = document.querySelector('nav');
-            const navLinks = document.querySelector('.nav-links');
-
-            // Create hamburger button
-            const menuButton = document.createElement('button');
-            menuButton.className = 'nav-toggle';
-            menuButton.innerHTML = '&#9776;'; // Unicode for ☰
-            nav.insertBefore(menuButton, navLinks);
-
-            // Create mobile nav container
-            const mobileNav = document.createElement('div');
-            mobileNav.className = 'mobile-nav';
-            mobileNav.innerHTML = navLinks.innerHTML;
-            nav.appendChild(mobileNav);
-
-            // Toggle visibility
-            menuButton.addEventListener('click', () => {
-                const isVisible = mobileNav.style.display === 'flex';
-                mobileNav.style.display = isVisible ? 'none' : 'flex';
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

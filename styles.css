@@ -3,7 +3,6 @@
     --secondary-color: #2d5a87;
     --accent-color: #3182ce;
     --accent-bright: #63b3ed;
-    --success-color: #38a169;
     --text-primary: #1a202c;
     --text-secondary: #4a5568;
     --text-muted: #718096;
@@ -290,6 +289,28 @@ footer {
     color: var(--accent-color);
 }
 
+/* Utility Classes */
+.section-padding { padding: 100px 0; }
+.text-center { text-align: center; }
+.grid-auto-fit { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.card { 
+    background: var(--bg-secondary); 
+    padding: 2.5rem; 
+    border-radius: 16px; 
+    text-align: center; 
+    box-shadow: var(--shadow-sm); 
+}
+.card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.card-title { margin-bottom: 1rem; color: var(--text-primary); }
+.card-subtitle { color: var(--text-secondary); margin-bottom: 1rem; }
+.card-link { color: var(--accent-color); text-decoration: none; font-weight: 600; }
+.coming-soon { 
+    text-align: center; 
+    color: var(--text-muted); 
+    font-size: 1.1rem; 
+    margin-top: 3rem; 
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .nav-links {
@@ -346,5 +367,13 @@ footer {
         align-items: center;
         text-align: center;
         gap: 1rem;
+    }
+
+    .grid-auto-fit {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 2rem;
     }
 }

@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <!-- Header -->
     <header>
         <nav class="container">
@@ -25,9 +24,9 @@
     </header>
 
     <!-- About Section -->
-    <section class="about-section" style="padding: 100px 0;">
+    <section class="about-section section-padding">
         <div class="container">
-            <h1 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">About Shuttle Master</h1>
+            <h1 class="text-center" style="font-size: 2.5rem; margin-bottom: 2rem;">About Shuttle Master</h1>
             <p style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem; color: var(--text-secondary); line-height: 1.8;">
                 Shuttle Master is dedicated to helping players improve their badminton skills through carefully crafted training programs, expert tips, and engaging resources. Whether you're just starting out or looking to level up, we're here to help you play smarter, not just harder.
             </p>
@@ -37,11 +36,31 @@
     <!-- Footer -->
     <footer>
         <div class="container footer-flex">
-            <!-- same footer content as index.html -->
-            <!-- you can paste your footer HTML here directly -->
+            <div style="flex: 1 1 250px;">
+                <div class="logo">Shuttle Master</div>
+                <p style="margin-top: 1rem; color: #4a5568;">Copyright &copy; Shuttle Master</p>
+                <div class="social-icons">
+                    <a href="https://youtube.com" target="_blank"><img src="assets/icons/youtube.png" alt="YouTube" class="social-icon"></a>
+                    <a href="https://instagram.com" target="_blank"><img src="assets/icons/instagram.png" alt="Instagram" class="social-icon"></a>
+                    <a href="https://discord.com" target="_blank"><img src="assets/icons/discord.png" alt="Discord" class="social-icon"></a>
+                </div>
+            </div>
+
+            <div style="flex: 1 1 200px;">
+                <h3 style="font-weight: 700; margin-bottom: 1rem;">Quick Links</h3>
+                <p><a class="footer-link" href="index.html">Home</a></p>
+                <p><a class="footer-link" href="index.html#shop">Shop</a></p>
+                <p><a class="footer-link" href="index.html#articles">Articles</a></p>
+            </div>
+
+            <div style="flex: 1 1 200px;">
+                <h3 style="font-weight: 700; margin-bottom: 1rem;">Company</h3>
+                <p><a class="footer-link" href="about.html">About Us</a></p>
+                <p><a class="footer-link" href="index.html#contact">Contact</a></p>
+            </div>
         </div>
     </footer>
 
-    <!-- Include your JS here if needed -->
+   <script src="script.js"></script>
 </body>
 </html>
