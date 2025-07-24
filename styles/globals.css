@@ -80,6 +80,11 @@ nav {
     color: var(--accent-color);
 }
 
+.nav-links li.active a,
+.mobile-nav li.active a {
+    color: var(--accent-color);
+}
+
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
