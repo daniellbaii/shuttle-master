@@ -24,9 +24,114 @@
                 <h2>Training Programs & Courses</h2>
                 <p class="services-subtitle">Purchase downloadable resources, training guides, and exclusive course access to take your badminton to the next level.</p>
             </div>
-            <div class="coming-soon">Shop feature coming soon.</div>
+            <!-- Products Grid -->
+            <div class="shop-grid">
+                <div class="product-card" data-product-id="beginner-course">
+                    <div class="product-card-image">
+                        🏸
+                        <span class="product-badge">Popular</span>
+                    </div>
+                    <div class="product-card-content">
+                        <div class="product-category">Training Program</div>
+                        <h3 class="product-title">Complete Beginner's Badminton Course</h3>
+                        <p class="product-description">A comprehensive 8-week program designed to take you from absolute beginner to confident player with proper fundamentals.</p>
+                        <div class="product-features">
+                            <ul>
+                                <li>8 structured weekly lessons</li>
+                                <li>Video demonstrations for all techniques</li>
+                                <li>Printable practice drills</li>
+                                <li>Progress tracking worksheets</li>
+                                <li>Email support from Coach Evesh</li>
+                            </ul>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">
+                                <span class="product-price-original">$149</span>
+                                $99
+                            </div>
+                            <button class="product-btn add-to-cart-btn" data-product-id="beginner-course">Add to Cart 🛒</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product-id="tournament-masterclass">
+                    <div class="product-card-image">
+                        🏆
+                        <span class="product-badge">Premium</span>
+                    </div>
+                    <div class="product-card-content">
+                        <div class="product-category">Training Program</div>
+                        <h3 class="product-title">Tournament Champion Training Program</h3>
+                        <p class="product-description">Elite-level training program covering everything needed to compete and win at tournament level with personalized coaching.</p>
+                        <div class="product-features">
+                            <ul>
+                                <li>12-week structured program</li>
+                                <li>Match analysis and strategy sessions</li>
+                                <li>Advanced tactical training</li>
+                                <li>1-on-1 coaching sessions (6 sessions)</li>
+                                <li>Tournament preparation guidance</li>
+                            </ul>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">
+                                <span class="product-price-original">$299</span>
+                                $199
+                            </div>
+                            <button class="product-btn add-to-cart-btn" data-product-id="tournament-masterclass">Add to Cart 🛒</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product-id="smash-program">
+                    <div class="product-card-image">🎯</div>
+                    <div class="product-card-content">
+                        <div class="product-category">Training Program</div>
+                        <h3 class="product-title">Power Smash Development Program</h3>
+                        <p class="product-description">Build devastating attacking power with this specialized 6-week program focused on smash technique and conditioning.</p>
+                        <div class="product-features">
+                            <ul>
+                                <li>6-week structured program</li>
+                                <li>Biomechanics video analysis</li>
+                                <li>Strength training protocols</li>
+                                <li>Shot accuracy drills</li>
+                                <li>Personal feedback sessions</li>
+                            </ul>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$129</div>
+                            <button class="product-btn add-to-cart-btn" data-product-id="smash-program">Add to Cart 🛒</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h3>Shopping Cart</h3>
+                <button class="cart-modal-close">&times;</button>
+            </div>
+            <div class="cart-modal-body">
+                <div id="cart-empty" class="cart-empty">
+                    <p>No products in the basket.</p>
+                    <button class="cart-modal-close btn-secondary">Continue Shopping</button>
+                </div>
+                <div id="cart-items" class="cart-items"></div>
+            </div>
+            <div class="cart-modal-footer">
+                <div class="cart-total">
+                    <strong>Total: $<span id="cart-total">0</span></strong>
+                </div>
+                <div class="cart-actions">
+                    <button class="btn-secondary cart-modal-close">Continue Shopping</button>
+                    <button class="btn-primary" id="checkout-btn">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <div id="footer-temp"></div>
