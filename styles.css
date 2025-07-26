@@ -315,6 +315,68 @@ footer {
 .section-padding { padding: 100px 0; }
 .text-center { text-align: center; }
 .grid-auto-fit { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.grid-spacing { margin-top: 4rem; }
+.bg-secondary { background: var(--bg-secondary); }
+
+/* Logo styles */
+.logo-flex {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Footer specific styles */
+.footer-column {
+    flex: 1 1 250px;
+}
+
+.footer-column-narrow {
+    flex: 1 1 200px;
+}
+
+.footer-copyright {
+    margin-top: 1rem;
+    color: #4a5568;
+}
+
+.footer-heading {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* About page styles */
+.about-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.about-heading {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.about-list {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin: 1.5rem 0 2rem 2rem;
+    list-style-type: disc;
+}
 .card {
     background: var(--bg-secondary);
     padding: 2.5rem;

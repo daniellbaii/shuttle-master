@@ -1,97 +1,131 @@
-// template-loader.js
-async function loadTemplate(elementId, templatePath) {
-    try {
-        const response = await fetch(templatePath);
-        const html = await response.text();
-        document.getElementById(elementId).innerHTML = html;
-    } catch (error) {
-        console.error(`Error loading template ${templatePath}:`, error);
+// =====================================
+// TEMPLATE LOADER MODULE
+// =====================================
+const TemplateLoader = {
+    async loadTemplate(elementId, templatePath) {
+        try {
+            const response = await fetch(templatePath);
+            const html = await response.text();
+            document.getElementById(elementId).innerHTML = html;
+        } catch (error) {
+            console.error(`Error loading template ${templatePath}:`, error);
+        }
+    },
+
+    async loadAll() {
+        await Promise.all([
+            this.loadTemplate('header-temp', 'templates/header.html'),
+            this.loadTemplate('footer-temp', 'templates/footer.html')
+        ]);
     }
-}
+};
 
-// Load templates when DOM is ready
-document.addEventListener('DOMContentLoaded', async () => {
-    // Load header and footer
-    await loadTemplate('header-temp', 'templates/header.html');
-    await loadTemplate('footer-temp', 'templates/footer.html');
-    
-    // Initialize the mobile menu after header is loaded
-    initializeMobileMenu();
-});
+// =====================================
+// MOBILE NAVIGATION MODULE
+// =====================================
+const MobileNav = {
+    nav: null,
+    navLinks: null,
+    menuButton: null,
+    mobileNav: null,
 
-// Your existing mobile menu code
-function initializeMobileMenu() {
-    const nav = document.querySelector('nav');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (!nav || !navLinks) return; // Exit if elements don't exist
+    init() {
+        this.nav = document.querySelector('nav');
+        this.navLinks = document.querySelector('.nav-links');
+        
+        if (!this.nav || !this.navLinks) return;
 
-    // Create hamburger button
-    const menuButton = document.createElement('button');
-    menuButton.className = 'nav-toggle';
-    menuButton.innerHTML = '&#9776;';
-    nav.insertBefore(menuButton, navLinks);
+        this.createMenuButton();
+        this.createMobileNav();
+        this.attachEventListeners();
+    },
 
-    // Create mobile nav container
-    const mobileNav = document.createElement('ul');
-    mobileNav.className = 'mobile-nav';
-    
-    // Copy nav links to mobile nav
-    const navItems = navLinks.querySelectorAll('li');
-    navItems.forEach(item => {
-        const clonedItem = item.cloneNode(true);
-        mobileNav.appendChild(clonedItem);
-    });
-    
-    nav.appendChild(mobileNav);
+    createMenuButton() {
+        this.menuButton = document.createElement('button');
+        this.menuButton.className = 'nav-toggle';
+        this.menuButton.innerHTML = '&#9776;';
+        this.nav.insertBefore(this.menuButton, this.navLinks);
+    },
 
-    // Toggle visibility with animation
-    menuButton.addEventListener('click', () => {
-        const isVisible = mobileNav.classList.contains('show');
+    createMobileNav() {
+        this.mobileNav = document.createElement('ul');
+        this.mobileNav.className = 'mobile-nav';
+        
+        const navItems = this.navLinks.querySelectorAll('li');
+        navItems.forEach(item => {
+            const clonedItem = item.cloneNode(true);
+            this.mobileNav.appendChild(clonedItem);
+        });
+        
+        this.nav.appendChild(this.mobileNav);
+    },
+
+    toggleMenu() {
+        const isVisible = this.mobileNav.classList.contains('show');
         
         if (isVisible) {
-            mobileNav.classList.remove('show');
-            menuButton.classList.remove('active');
-            setTimeout(() => {
-                mobileNav.style.display = 'none';
-            }, 300);
+            this.hideMenu();
         } else {
-            mobileNav.style.display = 'flex';
-            setTimeout(() => {
-                mobileNav.classList.add('show');
-                menuButton.classList.add('active');
-            }, 10);
+            this.showMenu();
         }
-    });
+    },
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!nav.contains(e.target) && mobileNav.classList.contains('show')) {
-            mobileNav.classList.remove('show');
-            menuButton.classList.remove('active');
-            setTimeout(() => {
-                mobileNav.style.display = 'none';
-            }, 300);
-        }
-    });
+    showMenu() {
+        this.mobileNav.style.display = 'flex';
+        setTimeout(() => {
+            this.mobileNav.classList.add('show');
+            this.menuButton.classList.add('active');
+        }, 10);
+    },
 
-    // Close menu when clicking on a link
-    mobileNav.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') {
-            mobileNav.classList.remove('show');
-            menuButton.classList.remove('active');
-            setTimeout(() => {
-                mobileNav.style.display = 'none';
-            }, 300);
-        }
-    });
+    hideMenu() {
+        this.mobileNav.classList.remove('show');
+        this.menuButton.classList.remove('active');
+        setTimeout(() => {
+            this.mobileNav.style.display = 'none';
+        }, 300);
+    },
 
-    // Close menu when screen size returns to normal
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
-            mobileNav.classList.remove('show');
-            menuButton.classList.remove('active');
-            mobileNav.style.display = 'none';
+    attachEventListeners() {
+        // Toggle menu on button click
+        this.menuButton.addEventListener('click', () => this.toggleMenu());
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!this.nav.contains(e.target) && this.mobileNav.classList.contains('show')) {
+                this.hideMenu();
+            }
+        });
+
+        // Close menu when clicking on a link
+        this.mobileNav.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                this.hideMenu();
+            }
+        });
+
+        // Close menu when screen size returns to normal
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                this.hideMenu();
+            }
+        });
+    }
+};
+
+// =====================================
+// APPLICATION INITIALIZATION
+// =====================================
+const App = {
+    async init() {
+        try {
+            await TemplateLoader.loadAll();
+            MobileNav.init();
+        } catch (error) {
+            console.error('Error initializing application:', error);
         }
-    });
-}
+    }
+};
+
+// Initialize app when DOM is ready
+document.addEventListener('DOMContentLoaded', () => App.init());

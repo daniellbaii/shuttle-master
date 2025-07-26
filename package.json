@@ -1,0 +1,20 @@
+{
+  "name": "shuttle-master",
+  "version": "1.0.0",
+  "description": "Shuttle Master - Badminton coaching website",
+  "main": "index.html",
+  "scripts": {
+    "serve": "python -m http.server 8000",
+    "minify-css": "cleancss -o styles.min.css styles.css",
+    "minify-js": "uglifyjs script.js -o script.min.js -c -m",
+    "build": "npm run minify-css && npm run minify-js",
+    "dev": "npm run serve"
+  },
+  "keywords": ["badminton", "coaching", "sports", "website"],
+  "author": "Shuttle Master",
+  "license": "MIT",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "uglify-js": "^3.17.4"
+  }
+}
